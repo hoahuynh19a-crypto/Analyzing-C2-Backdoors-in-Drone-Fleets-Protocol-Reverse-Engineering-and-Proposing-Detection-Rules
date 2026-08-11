@@ -132,7 +132,7 @@ Mẫu malware được thu thập từ MalwareBazaar --- nền tảng chia sẻ 
 thập mã độc miễn phí do Abuse.ch vận hành.
 
 ![Trang thông tin mẫu Mirai trên
-MalwareBazaar](images/phan1_image1.png){#fig:p1_1 width="90%"}
+MalwareBazaar](images/phan1_image1.png)
 
 ## Public AV Detection
 
@@ -157,13 +157,13 @@ behavior chính là Trojan/Backdoor. VirusTotal cũng xác định domain C2 là
 `cafebabe.su` với 8 detection.
 
 ![MalwareBazaar --- Database Entry, hash và metadata của mẫu
-ELF](images/phan1_image2.png){#fig:p1_2 width="90%"}
+ELF](images/phan1_image2.png)
 
 ![VirusTotal --- 36 vendor phát hiện mẫu là malicious/Mirai
-variant](images/phan1_image3.png){#fig:p1_3 width="90%"}
+variant](images/phan1_image3.png)
 
 ![VirusTotal --- Danh sách engine AV và tên
-detection](images/phan1_image4.png){#fig:p1_4 width="90%"}
+detection](images/phan1_image4.png)
 
 ### Hybrid Analysis
 
@@ -173,7 +173,7 @@ nhóm Trojan.Generic, kèm đặc tính lẩn tránh phân tích và liên quan 
 domain mới chưa có độ tin cậy cao.
 
 ![MalwareBazaar/VirusTotal --- IP traffic liên quan cafebabe.su và
-api.snapcraft.io](images/phan1_image5.png){#fig:p1_5 width="90%"}
+api.snapcraft.io](images/phan1_image5.png)
 
 ## ELF Header Analysis
 
@@ -195,13 +195,13 @@ Sử dụng công cụ Cutter và `readelf` để phân tích ELF header:
 -   Stripped: true (đã loại bỏ symbol table)
 
 ![VirusTotal Relations --- domain cafebabe.su và IP liên
-quan](images/phan1_image6.png){#fig:p1_6 width="90%"}
+quan](images/phan1_image6.png)
 
 ![VirusTotal Details --- hash, metadata và lịch sử tên file của
-mẫu](images/phan1_image7.png){#fig:p1_7 width="90%"}
+mẫu](images/phan1_image7.png)
 
 ![Hybrid Analysis --- Threat Score 100/100 và malicious
-classification](images/phan1_image8.png){#fig:p1_8 width="90%"}
+classification](images/phan1_image8.png)
 
 ## Strings Analysis
 
@@ -225,13 +225,13 @@ xác thực tới C2 server. Domain C2 `cafebabe.su` không xuất hiện dạng
 plaintext trong strings, cho thấy C2 address bị mã hóa trong binary.
 
 ![Cutter --- ELF overview: x86, Linux, ELF32,
-stripped](images/phan1_image9.png){#fig:p1_9 width="90%"}
+stripped](images/phan1_image9.png)
 
 ![Sơ đồ cấu trúc ELF --- ELF header, program header table và section
-headers](images/phan1_image10.png){#fig:p1_10 width="90%"}
+headers](images/phan1_image10.png)
 
 ![readelf -h --- Xác nhận ELF32 i386 và entry point
-0x08048164](images/phan1_image11.png){#fig:p1_11 width="90%"}
+0x08048164](images/phan1_image11.png)
 
 ## Entropy Analysis
 
@@ -253,10 +253,10 @@ tra thêm bằng Ghidra.
 :::
 
 ![readelf -S --- Danh sách section headers của file
-ELF](images/phan1_image12.png){#fig:p1_12 width="90%"}
+ELF](images/phan1_image12.png)
 
 ![readelf -l --- Program headers, entry point và section-to-segment
-mapping](images/phan1_image13.png){#fig:p1_13 width="90%"}
+mapping](images/phan1_image13.png)
 
 ## IOC Summary
 
@@ -275,7 +275,7 @@ mapping](images/phan1_image13.png){#fig:p1_13 width="90%"}
 :::
 
 ![Detect It Easy --- Danh sách strings đáng chú ý trong section
-ELF](images/phan1_image14.png){#fig:p1_14 width="90%"}
+ELF](images/phan1_image14.png)
 
 ## Kết luận Basic Static Analysis
 
@@ -286,7 +286,7 @@ binary), và chuỗi đặc trưng "shit bot commenced". Entropy chưa cho thấ
 packed toàn cục, nhưng cần phân tích sâu hơn bằng Ghidra.
 
 ![Detect It Easy Entropy --- .text entropy 6.45476, chưa có dấu hiệu
-packed toàn cục](images/phan1_image15.png){#fig:p1_15 width="90%"}
+packed toàn cục](images/phan1_image15.png)
 
 # Lab Setup & Dynamic Analysis {#sec:dynamic}
 
@@ -310,7 +310,7 @@ ra Internet thật:
 -   **Chế độ mạng:** LAN Segment (`Mirai_Isolated_Net`)
 
 ![Cài đặt và kiểm tra strace/tcpdump trên Kali
-Linux](images/phan2_image1.png){#fig:p2_1 width="90%"}
+Linux](images/phan2_image1.png)
 
 ## Chuẩn bị môi trường và đảm bảo trạng thái sạch
 
@@ -320,16 +320,16 @@ Trên Kali Linux cài strace và tcpdump; trên REMnux cài tshark,
 wireshark-common, và inetsim.
 
 ![Kiểm tra tshark, capinfos và inetsim trên
-REMnux](images/phan2_image2.png){#fig:p2_2 width="90%"}
+REMnux](images/phan2_image2.png)
 
 ![Cấu hình VMware LAN Segment cho máy Kali trong mạng
-Mirai_Isolated_Net](images/phan2_image3.png){#fig:p2_3 width="90%"}
+Mirai_Isolated_Net](images/phan2_image3.png)
 
 ![Cấu hình VMware LAN Segment cho máy REMnux và cài
-Wireshark/tshark](images/phan2_image4.png){#fig:p2_4 width="90%"}
+Wireshark/tshark](images/phan2_image4.png)
 
 ![REMnux --- Đặt IP tĩnh 10.10.10.10/24 và tắt
-systemd-resolved](images/phan2_image5.png){#fig:p2_5 width="90%"}
+systemd-resolved](images/phan2_image5.png)
 
 ## Cấu hình mạng cô lập và giả lập dịch vụ Internet
 
@@ -340,19 +340,19 @@ Thiết lập IP tĩnh, giải phóng cổng DNS (Port 53) bằng cách tắt
 1.37.
 
 ![INetSim --- bật các dịch vụ giả lập trong
-/etc/inetsim/inetsim.conf](images/phan2_image6.png){#fig:p2_6 width="90%"}
+/etc/inetsim/inetsim.conf](images/phan2_image6.png)
 
 ![INetSim --- cấu hình dns_default_ip trả về
-10.10.10.10](images/phan2_image7.png){#fig:p2_7 width="90%"}
+10.10.10.10](images/phan2_image7.png)
 
 ![INetSim --- kiểm tra service_bind_address và dns_default_ip sau khi
-chỉnh cấu hình](images/phan2_image8.png){#fig:p2_8 width="90%"}
+chỉnh cấu hình](images/phan2_image8.png)
 
 ![Kali --- Đặt IP 10.10.10.20/24 và trỏ DNS về
-REMnux](images/phan2_image9.png){#fig:p2_9 width="90%"}
+REMnux](images/phan2_image9.png)
 
 ![Kali --- cấu hình iptables DNAT DNS/TCP và kiểm tra bảng
-NAT](images/phan2_image10.png){#fig:p2_10 width="90%"}
+NAT](images/phan2_image10.png)
 
 ### Cấu hình Kali Linux (10.10.10.20)
 
@@ -361,76 +361,76 @@ chuyển hướng toàn bộ traffic. Mirai hardcode DNS servers (8.8.8.8,
 1.1.1.1) trong binary, bypass hoàn toàn `/etc/resolv.conf`.
 
 ![Kali --- ping REMnux thành công, ping 8.8.8.8 thất bại vì bảng NAT có
-gói DNS](images/phan2_image11.png){#fig:p2_11 width="90%"}
+gói DNS](images/phan2_image11.png)
 
 ![Kali --- ping 8.8.8.8 packet loss 100%, xác nhận môi trường cô
-lập](images/phan2_image12.png){#fig:p2_12 width="90%"}
+lập](images/phan2_image12.png)
 
 ![REMnux --- ping Kali 10.10.10.20 thành
-công](images/phan2_image13.png){#fig:p2_13 width="90%"}
+công](images/phan2_image13.png)
 
 ![INetSim --- khởi động dịch vụ giả lập dns/http/https thành
-công](images/phan2_image14.png){#fig:p2_14 width="90%"}
+công](images/phan2_image14.png)
 
 ![tcpdump --- bắt đầu capture trên interface ens33 vào
-mirai_capture.pcap](images/phan2_image15.png){#fig:p2_15 width="90%"}
+mirai_capture.pcap](images/phan2_image15.png)
 
 ### Kiểm chứng kết nối và cô lập
 
 ![Giải nén mẫu malware bằng 7z với mật khẩu
-infected](images/phan2_image16.png){#fig:p2_16 width="90%"}
+infected](images/phan2_image16.png)
 
 ![Lệnh file --- xác nhận ELF 32-bit LSB executable, Intel 80386,
-statically linked, stripped](images/phan2_image17.png){#fig:p2_17 width="90%"}
+statically linked, stripped](images/phan2_image17.png)
 
 ![chmod +x --- cấp quyền thực thi cho mẫu
-ELF](images/phan2_image18.png){#fig:p2_18 width="90%"}
+ELF](images/phan2_image18.png)
 
 ## Thực thi và giám sát mã độc Mirai
 
 ### Khởi động dịch vụ giả lập và bắt gói tin trên REMnux
 
 ![strace --- thực thi mẫu và ghi log syscall, output "shit bot
-commenced"](images/phan2_image19.png){#fig:p2_19 width="90%"}
+commenced"](images/phan2_image19.png)
 
 ![Dừng các tiến trình malware bằng kill -9 theo
-PID](images/phan2_image20.png){#fig:p2_20 width="90%"}
+PID](images/phan2_image20.png)
 
 ### Giải nén và xác nhận mẫu mã độc trên Kali
 
 ![tcpdump --- dừng capture và thu được 1,569
-packet](images/phan2_image21.png){#fig:p2_21 width="90%"}
+packet](images/phan2_image21.png)
 
 ![INetSim --- dừng simulation và ghi
-report.3756.txt](images/phan2_image22.png){#fig:p2_22 width="90%"}
+report.3756.txt](images/phan2_image22.png)
 
 ### Thực thi mã độc với strace
 
 ![Kiểm tra strace log --- 4,439 dòng, file mirai_strace.log 384
-KB](images/phan2_image23.png){#fig:p2_23 width="90%"}
+KB](images/phan2_image23.png)
 
 ![SHA256 --- hash của artifact
-mirai_strace.log](images/phan2_image24.png){#fig:p2_24 width="90%"}
+mirai_strace.log](images/phan2_image24.png)
 
 ### Dừng mã độc và thu thập dữ liệu
 
 Sau 15 phút, dừng các tiến trình mã độc và thu thập artifact.
 
 ![Syscall summary --- socket 428, connect 427, recvfrom
-213](images/phan2_image25.png){#fig:p2_25 width="90%"}
+213](images/phan2_image25.png)
 
 ![capinfos --- tổng quan file mirai_capture.pcap, 1,569 packet, 219
-KB](images/phan2_image26.png){#fig:p2_26 width="90%"}
+KB](images/phan2_image26.png)
 
 ![tshark Protocol Hierarchy --- TCP 840 frames, UDP/DNS 589
-frames](images/phan2_image27.png){#fig:p2_27 width="90%"}
+frames](images/phan2_image27.png)
 
 ## Phân tích chuyên sâu chứng cứ (Forensic Analysis)
 
 ### Tính toàn vẹn chứng cứ số
 
 ![tshark IPv4 Conversations --- traffic giữa 10.10.10.20 và
-10.10.10.10](images/phan2_image28.png){#fig:p2_28 width="90%"}
+10.10.10.10](images/phan2_image28.png)
 
 ### Phân tích System Call
 
@@ -439,24 +439,24 @@ write (3), ioctl (2), execve (1), openat (0), read (0). Kết quả chứng
 minh Mirai là mã độc memory-based, network-centric.
 
 ![tshark DNS filter --- truy vấn cafebabe.su lặp lại giữa Kali và
-REMnux](images/phan2_image29.png){#fig:p2_29 width="90%"}
+REMnux](images/phan2_image29.png)
 
 ### Phân tích PCAP
 
 ![tshark ICMP Type 3 --- port unreachable từ REMnux về
-Kali](images/phan2_image30.png){#fig:p2_30 width="90%"}
+Kali](images/phan2_image30.png)
 
 ![Copy mirai_strace.log từ artifacts sang Desktop
-Kali](images/phan2_image31.png){#fig:p2_31 width="90%"}
+Kali](images/phan2_image31.png)
 
 ![Copy mirai_capture.pcap và INetSim report sang Desktop
-REMnux](images/phan2_image32.png){#fig:p2_32 width="90%"}
+REMnux](images/phan2_image32.png)
 
 ![REMnux Desktop --- xác nhận mirai_capture.pcap và report.3756.txt đã
-được copy](images/phan2_image33.png){#fig:p2_33 width="90%"}
+được copy](images/phan2_image33.png)
 
 ![Kali Desktop --- xác nhận mirai_strace.log đã được
-copy](images/phan2_image34.png){#fig:p2_34 width="90%"}
+copy](images/phan2_image34.png)
 
 ### Phân tích báo cáo INetSim
 
@@ -465,7 +465,7 @@ khi nhận IP giả, Mirai thực hiện kết nối TCP đến REMnux --- INetS
 vai máy chủ C2 và trả về file mẫu.
 
 ![INetSim report --- DNS queries và HTTP/HTTPS connections được ghi
-nhận](images/phan2_image35.png){#fig:p2_35 width="90%"}
+nhận](images/phan2_image35.png)
 
 ## Artifact bàn giao
 
@@ -489,21 +489,21 @@ phải ARM; thời gian chạy giới hạn 15 phút.
 ## Xác minh mẫu
 
 ![readelf -h --- ELF32 i386 và entry point
-0x08048164](images/phan3_image1.png){#fig:p3_1 width="90%"}
+0x08048164](images/phan3_image1.png)
 
 ![Ghidra --- rename FUN_08050b25 thành main](images/phan3_image2.png){#fig:p3_2
 width="90%"}
 
 ![Ghidra --- rename hàm tại 0x0804a8f4 thành
-http_flood_sender](images/phan3_image3.png){#fig:p3_3 width="90%"}
+http_flood_sender](images/phan3_image3.png)
 
 ![Ghidra --- rename hàm tại 0x08051a62 thành
-rc4_like_decoder_candidate](images/phan3_image4.png){#fig:p3_4 width="90%"}
+rc4_like_decoder_candidate](images/phan3_image4.png)
 
 ## Strings và HTTP Path Analysis
 
 ![XOR helper --- chạy khiem_xor_decoder.py với single byte
-0x22](images/phan3_image5.png){#fig:p3_5 width="90%"}
+0x22](images/phan3_image5.png)
 
 ## Ghidra Workflow và Function Mapping
 
@@ -528,16 +528,16 @@ syscall/socket pattern.
 :::
 
 ![Credential grep --- kiểm tra keyword root/admin/login/user/pass trong
-strings](images/phan3_image6.png){#fig:p3_6 width="90%"}
+strings](images/phan3_image6.png)
 
 ![Network strings grep --- token=%s&guid=%s, HTTP headers và endpoint
-API](images/phan3_image7.png){#fig:p3_7 width="90%"}
+API](images/phan3_image7.png)
 
 ![Ghidra --- evidence loopback constant 0x0100007f trong function
-0x08050910](images/phan3_image8.png){#fig:p3_8 width="90%"}
+0x08050910](images/phan3_image8.png)
 
 ![Ghidra --- port bytes 0x46d1 trong socket
-setup](images/phan3_image9.png){#fig:p3_9 width="90%"}
+setup](images/phan3_image9.png)
 
 ![Ghidra --- rename FUN_080485de thành
 command_handler_table_init_candidate](images/phan3_image10.png){#fig:p3_10
@@ -548,16 +548,16 @@ register_command_handler_candidate](images/phan3_image11.png){#fig:p3_11
 width="90%"}
 
 ![Ghidra comment --- command ID 0x32 maps to
-http_flood_sender](images/phan3_image12.png){#fig:p3_12 width="90%"}
+http_flood_sender](images/phan3_image12.png)
 
 ![SHA256 hash --- xác nhận đúng mẫu trước khi phân
-tích](images/phan3_image13.png){#fig:p3_13 width="90%"}
+tích](images/phan3_image13.png)
 
 ![Lệnh file --- xác nhận ELF 32-bit LSB executable, Intel 80386,
-statically linked, stripped](images/phan3_image14.png){#fig:p3_14 width="90%"}
+statically linked, stripped](images/phan3_image14.png)
 
 ![strings -a --- xuất chuỗi ban đầu từ ELF
-binary](images/phan3_image15.png){#fig:p3_15 width="90%"}
+binary](images/phan3_image15.png)
 
 ## Decode / XOR Logic
 
@@ -566,31 +566,31 @@ custom decode/cipher candidate. Không thấy immediate `0xDEADBEEF`; test
 XOR byte `0x22` không cho output meaningful.
 
 ![Grep suspicious strings --- HTTP methods, API paths và
-/proc/net/tcp](images/phan3_image16.png){#fig:p3_16 width="90%"}
+/proc/net/tcp](images/phan3_image16.png)
 
 ![Credential search output --- các hit là endpoint/string, không phải
-user:pass plaintext](images/phan3_image17.png){#fig:p3_17 width="90%"}
+user:pass plaintext](images/phan3_image17.png)
 
 ![Ghidra Defined Strings --- reference tại
-/admin](images/phan3_image18.png){#fig:p3_18 width="90%"}
+/admin](images/phan3_image18.png)
 
 ![Ghidra Defined Strings --- reference tại
-/admin/login](images/phan3_image19.png){#fig:p3_19 width="90%"}
+/admin/login](images/phan3_image19.png)
 
 ![Ghidra Defined Strings --- reference tại
-/admin/dashboard](images/phan3_image20.png){#fig:p3_20 width="90%"}
+/admin/dashboard](images/phan3_image20.png)
 
 ![Ghidra References --- format string HTTP request với
-Host/User-Agent](images/phan3_image21.png){#fig:p3_21 width="90%"}
+Host/User-Agent](images/phan3_image21.png)
 
 ![Ghidra Defined Strings --- reference tại
-/api/v1/users](images/phan3_image22.png){#fig:p3_22 width="90%"}
+/api/v1/users](images/phan3_image22.png)
 
 ![Ghidra Defined Strings --- reference tại
-/status](images/phan3_image23.png){#fig:p3_23 width="90%"}
+/status](images/phan3_image23.png)
 
 ![Ghidra --- rename hàm tại 0x08051a32 thành
-socket_wrapper](images/phan3_image24.png){#fig:p3_24 width="90%"}
+socket_wrapper](images/phan3_image24.png)
 
 ## Credential Findings
 
@@ -600,28 +600,28 @@ guest, default, xc3511, vizxv. Kết quả: **không tìm thấy plaintext
 credential list**. Các hit chỉ là HTTP endpoint path.
 
 ![Ghidra --- rename hàm tại 0x08051b92 thành
-signal_setup](images/phan3_image25.png){#fig:p3_25 width="90%"}
+signal_setup](images/phan3_image25.png)
 
 ![Ghidra --- rename hàm tại 0x08052d63 thành
-printf_wrapper](images/phan3_image26.png){#fig:p3_26 width="90%"}
+printf_wrapper](images/phan3_image26.png)
 
 ![Ghidra --- rename hàm tại 0x080535dd thành
-write_wrapper](images/phan3_image27.png){#fig:p3_27 width="90%"}
+write_wrapper](images/phan3_image27.png)
 
 ![Ghidra --- rename hàm tại 0x08054c21 thành
-send_wrapper](images/phan3_image28.png){#fig:p3_28 width="90%"}
+send_wrapper](images/phan3_image28.png)
 
 ![Ghidra --- rename hàm tại 0x080514d1 thành
-gen_random_string](images/phan3_image29.png){#fig:p3_29 width="90%"}
+gen_random_string](images/phan3_image29.png)
 
 ![Ghidra --- rename hàm tại 0x08050aa6 thành
-init_rng](images/phan3_image30.png){#fig:p3_30 width="90%"}
+init_rng](images/phan3_image30.png)
 
 ![Ghidra --- rename hàm tại 0x08048286 thành
-build_c2_post_data](images/phan3_image31.png){#fig:p3_31 width="90%"}
+build_c2_post_data](images/phan3_image31.png)
 
 ![Ghidra annotation --- XOR result được ghi lại vào memory, dấu hiệu
-encode/decode loop](images/phan3_image32.png){#fig:p3_32 width="90%"}
+encode/decode loop](images/phan3_image32.png)
 
 ## Network Constants và Static-Dynamic Correlation
 
@@ -636,43 +636,43 @@ encode/decode loop](images/phan3_image32.png){#fig:p3_32 width="90%"}
 :::
 
 ![Ghidra annotation --- XOR/mixing operation trong
-rc4_like_decoder_candidate](images/phan3_image33.png){#fig:p3_33 width="90%"}
+rc4_like_decoder_candidate](images/phan3_image33.png)
 
 ![Ghidra search --- không tìm thấy immediate
-0xDEADBEEF](images/phan3_image34.png){#fig:p3_34 width="90%"}
+0xDEADBEEF](images/phan3_image34.png)
 
 ![Ghidra search --- không tìm thấy byte sequence EF BE AD
-DE](images/phan3_image35.png){#fig:p3_35 width="90%"}
+DE](images/phan3_image35.png)
 
 ![Ghidra search --- không tìm thấy byte sequence DE AD BE
-EF](images/phan3_image36.png){#fig:p3_36 width="90%"}
+EF](images/phan3_image36.png)
 
 ![XOR helper --- chạy thử key 0xDEADBEEF, effective byte
-0x22](images/phan3_image37.png){#fig:p3_37 width="90%"}
+0x22](images/phan3_image37.png)
 
 ![XOR helper result --- output decode không tạo credential/C2 table có
-nghĩa](images/phan3_image38.png){#fig:p3_38 width="90%"}
+nghĩa](images/phan3_image38.png)
 
 ![Ghidra References --- token=%s&guid=%s có 2
-locations](images/phan3_image39.png){#fig:p3_39 width="90%"}
+locations](images/phan3_image39.png)
 
 ![Ghidra References --- địa chỉ/string 08057aaf không có
-location](images/phan3_image40.png){#fig:p3_40 width="90%"}
+location](images/phan3_image40.png)
 
 ![Ghidra References --- GET / HTTP/1.1 Host có 2
-locations](images/phan3_image41.png){#fig:p3_41 width="90%"}
+locations](images/phan3_image41.png)
 
 ![Ghidra References --- kiểm tra lại GET / HTTP/1.1 Host trong Defined
-Strings](images/phan3_image42.png){#fig:p3_42 width="90%"}
+Strings](images/phan3_image42.png)
 
 ![Ghidra References --- format string "%s /%s HTTP/1.1 Host: %s
-User-Agent" có 2 locations](images/phan3_image43.png){#fig:p3_43 width="90%"}
+User-Agent" có 2 locations](images/phan3_image43.png)
 
 ![Ghidra References --- Mozilla/5.0 user-agent có 1
-location](images/phan3_image44.png){#fig:p3_44 width="90%"}
+location](images/phan3_image44.png)
 
 ![Ghidra References --- HTTP request format string có DATA
-offcut](images/phan3_image45.png){#fig:p3_45 width="90%"}
+offcut](images/phan3_image45.png)
 
 ## Command Handler Table
 
@@ -695,13 +695,13 @@ table. Tổng cộng 28 command ID đã được ánh xạ.
 :::
 
 ![Ghidra --- constant 0x0100007f tương ứng
-127.0.0.1](images/phan3_image46.png){#fig:p3_46 width="90%"}
+127.0.0.1](images/phan3_image46.png)
 
 ![Ghidra --- network-order 0x46d1 tương ứng port
-18129](images/phan3_image47.png){#fig:p3_47 width="90%"}
+18129](images/phan3_image47.png)
 
 ![Ghidra --- network-order 0x3500 tương ứng port
-53](images/phan3_image48.png){#fig:p3_48 width="90%"}
+53](images/phan3_image48.png)
 
 # Protocol RE & Behavior Analysis {#sec:protocol}
 
@@ -714,12 +714,12 @@ tách giao thức truyền thông. Lưu lượng chủ yếu diễn ra giữa
 ### Protocol Hierarchy
 
 ![Protocol Hierarchy trong Wireshark --- IPv4, TCP, UDP, DNS, TLS, ARP,
-ICMP](images/phan4_image1.png){#fig:p4_1 width="90%"}
+ICMP](images/phan4_image1.png)
 
 ### IPv4 Conversations
 
 ![IPv4 Conversations --- traffic tập trung giữa 10.10.10.20 và
-10.10.10.10](images/phan4_image2.png){#fig:p4_2 width="90%"}
+10.10.10.10](images/phan4_image2.png)
 
 ### TCP Conversations
 
@@ -727,20 +727,20 @@ Hệ thống ghi nhận 266 TCP Conversations. Nhiều kết nối đến cổng
 cùng các kết nối tới cổng 443 và 80.
 
 ![TCP Conversations --- 266 phiên TCP, nhiều kết nối tới port
-39419](images/phan4_image3.png){#fig:p4_3 width="90%"}
+39419](images/phan4_image3.png)
 
 ![Wireshark Conversations TCP --- nhiều phiên 10.10.10.20 tới port
-443](images/phan4_image4.png){#fig:p4_4 width="90%"}
+443](images/phan4_image4.png)
 
 ![Lọc tcp.port == 39419 --- SYN bị từ chối bằng RST,
-ACK](images/phan4_image5.png){#fig:p4_5 width="90%"}
+ACK](images/phan4_image5.png)
 
 ### UDP Conversations
 
 273 UDP Conversations, chủ yếu liên quan DNS.
 
 ![Lọc tcp.port == 443 --- TLSv1.3 handshake và Application
-Data](images/phan4_image6.png){#fig:p4_6 width="90%"}
+Data](images/phan4_image6.png)
 
 ## Phân tích chi tiết hành vi giao thức
 
@@ -751,7 +751,7 @@ INetSim trả về phản hồi thành công với IP `10.10.10.10`. Standard qu
 response, No error; Questions = 1; Answer RRs = 1.
 
 ![UDP Conversations --- 273 phiên UDP, chủ yếu DNS port
-53](images/phan4_image7.png){#fig:p4_7 width="90%"}
+53](images/phan4_image7.png)
 
 ### Phân tích TCP port 39419
 
@@ -759,7 +759,7 @@ Máy nhiễm nhiều lần gửi SYN đến 10.10.10.10:39419 nhưng luôn bị 
 vì INetSim không giả lập dịch vụ trên cổng này. Kết nối C2 thất bại.
 
 ![DNS overview trong Wireshark --- nhiều truy vấn và phản hồi A
-record](images/phan4_image8.png){#fig:p4_8 width="90%"}
+record](images/phan4_image8.png)
 
 ### Phân tích TCP port 443 (TLS)
 
@@ -768,7 +768,7 @@ $\rightarrow$ Server Hello $\rightarrow$ Change Cipher Spec
 $\rightarrow$ Application Data $\rightarrow$ FIN, ACK.
 
 ![DNS cafebabe.su --- response trả về
-10.10.10.10](images/phan4_image9.png){#fig:p4_9 width="90%"}
+10.10.10.10](images/phan4_image9.png)
 
 ### Phân tích TCP port 80 (HTTP)
 
@@ -776,7 +776,7 @@ Máy nhiễm gửi `GET /success.txt?ipv4 HTTP/1.1`, INetSim phản hồi
 `HTTP/1.1 200 OK`.
 
 ![TCP port 39419 --- SYN/RST, ACK, kết nối C2 thất
-bại](images/phan4_image10.png){#fig:p4_10 width="90%"}
+bại](images/phan4_image10.png)
 
 ## Protocol Specification
 
@@ -800,7 +800,7 @@ bại](images/phan4_image10.png){#fig:p4_10 width="90%"}
 :::
 
 ![TCP port 443 --- TLSv1.3 handshake và Application
-Data](images/phan4_image11.png){#fig:p4_11 width="90%"}
+Data](images/phan4_image11.png)
 
 ## Đối chiếu Static--Dynamic
 
@@ -809,7 +809,7 @@ các giao thức và cổng kết nối phản ánh đúng hành vi được l�
 Trình tự hoạt động: **DNS $\rightarrow$ TCP $\rightarrow$ HTTP/HTTPS**.
 
 ![HTTP port 80 --- GET /success.txt?ipv4, response 200
-OK](images/phan4_image12.png){#fig:p4_12 width="90%"}
+OK](images/phan4_image12.png)
 
 ## Hạn chế
 
